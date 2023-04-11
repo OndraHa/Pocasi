@@ -7,12 +7,15 @@
 
 import SwiftUI
 
+
 struct DetailView: View {
+    @State private var weatherResult: WeatherMain?
     let location: Locations
     var body: some View {
         Text(location.name)
         Text("\(location.latitude)")
         Text("\(location.longitude)")
+        Text("\(weatherResult?.current.temp ?? 0.0)")
             .onAppear{
                 dataDownload(lat: location.latitude, lon: location.longitude)
             }
@@ -30,8 +33,8 @@ struct DetailView: View {
                 return
             }
             
-            if let json = try? JSONSerialization.jsonObject(with: data){
-                print(json)
+            if let json = try? JSONDecoder().decode(WeatherMain.self, from: data){
+                weatherResult = json
             }
             
         }
