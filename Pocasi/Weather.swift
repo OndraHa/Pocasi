@@ -4,34 +4,42 @@
 //
 //  Created by Ondřej Hadraba on 11.04.2023.
 //
+struct WeatherCurrent: Codable{
+    let temp: Double
+    let feels_like: Double
+}
+
+struct WeatherDescription: Codable {
+    let main: String
+    let icon: String
+}
 
 struct WeatherMain: Codable {
-    let lat: Double
-    let lon: Double
-    let current: WeatherCurrent
-    let daily: [WeatherDaily]
+    let coord: Coordination
+    let main: WeatherCurrent
+    let weather: [WeatherDescription]
     
-    
-    struct WeatherCurrent: Codable{
-        let temp: Double
-        let feels_like: Double
-        let weather: [WeatherDescription]
-        
-        struct WeatherDescription: Codable {
-            let main: String
-            let icon: String
-        }
+   struct Coordination: Codable{
+        let lat: Double
+        let lon: Double
     }
+    
+}
+
+struct WeatherForecast: Codable{
+    let list: [WeatherDaily]
+    
     struct WeatherDaily: Codable{
         let dt: Int
-        let temp: DailyTemp
-        let weather: [DailyDescription]
-        
-        struct DailyTemp: Codable{
-            let day: Double
-        }
-        struct DailyDescription: Codable{
-            let icon: String
-        }
+        let main: WeatherCurrent
+        let weather: [WeatherDescription]
     }
+        
 }
+
+
+struct Weather: Codable{
+    var main: WeatherMain
+    var forecast: WeatherForecast
+}
+

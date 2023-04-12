@@ -50,4 +50,4 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-//https://api.openweathermap.org/data/2.5/onecall?lat=49.8209&lon=18.2625&exclude=minutely,hourly,alerts&appid=5a5769988061d2a4b575a39b6c9e3a99&units=metric
+
