@@ -33,6 +33,26 @@ struct DetailView: View {
         "50n": "text.alingcenter"
         
     ]
+    
+    var czkDescription: String {
+        switch weatherResultCurrent?.weather.first?.main {
+        case "Clear":
+            return "Jasno"
+        case "Clouds":
+            return "Oblačno"
+        case "Thunderstorm":
+            return "Bouřka"
+        case "Drizzle":
+            return "Mrholení"
+        case "Rain":
+            return "Déšť"
+        case "Snow":
+            return "Sněžení"
+        default:
+            return "..."
+            
+        }
+    }
     var body: some View {
         ScrollView{
             VStack(alignment: .leading){
@@ -40,7 +60,7 @@ struct DetailView: View {
                     .font(.callout)
                     .padding(.bottom, 20)
                 
-                Text(weatherResultCurrent?.weather.first?.main ?? "...")
+                Text(czkDescription)
                     .font(.system(size: 35))
                     .padding(.bottom, -30)
                 
@@ -58,6 +78,7 @@ struct DetailView: View {
                         
                         HStack{
                             Text("\(dayWeek(day.dt))")
+                                .frame(width: 110, alignment: .leading)
                             
                             Spacer()
                 
@@ -69,7 +90,10 @@ struct DetailView: View {
                             Spacer()
                             
                             Text("\(Int(day.main.temp))°C")
+                                .frame(width: 60, alignment: .trailing)
                         }
+                        .padding(.bottom, 3)
+                        Divider()
                     }
                 }
                 
