@@ -15,6 +15,8 @@
 		1911BA3A29E57B7B00E912C7 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911BA3929E57B7B00E912C7 /* DetailView.swift */; };
 		1911BA3E29E57F5C00E912C7 /* APIkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911BA3D29E57F5C00E912C7 /* APIkey.swift */; };
 		1911BA4029E586C900E912C7 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1911BA3F29E586C900E912C7 /* Weather.swift */; };
+		195B58FE29E7E12400BE601A /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195B58FD29E7E12400BE601A /* ContentViewModel.swift */; };
+		195B590029E7E13D00BE601A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195B58FF29E7E13D00BE601A /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		1911BA3929E57B7B00E912C7 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		1911BA3D29E57F5C00E912C7 /* APIkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIkey.swift; sourceTree = "<group>"; };
 		1911BA3F29E586C900E912C7 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		195B58FD29E7E12400BE601A /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		195B58FF29E7E13D00BE601A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +63,10 @@
 		1911BA2829E49E8900E912C7 /* Pocasi */ = {
 			isa = PBXGroup;
 			children = (
+				195B58FC29E7E0C000BE601A /* ViewModel */,
+				195B58FB29E7E0B600BE601A /* View */,
+				195B58FA29E7E0A900BE601A /* Model */,
 				1911BA2929E49E8900E912C7 /* PocasiApp.swift */,
-				1911BA2B29E49E8900E912C7 /* ContentView.swift */,
-				1911BA3929E57B7B00E912C7 /* DetailView.swift */,
-				1911BA3F29E586C900E912C7 /* Weather.swift */,
-				1911BA3D29E57F5C00E912C7 /* APIkey.swift */,
-				1911BA3729E54CA500E912C7 /* Locations.swift */,
 				1911BA2D29E49E8A00E912C7 /* Assets.xcassets */,
 				1911BA2F29E49E8A00E912C7 /* Preview Content */,
 			);
@@ -77,6 +79,34 @@
 				1911BA3029E49E8A00E912C7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		195B58FA29E7E0A900BE601A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1911BA3F29E586C900E912C7 /* Weather.swift */,
+				1911BA3D29E57F5C00E912C7 /* APIkey.swift */,
+				1911BA3729E54CA500E912C7 /* Locations.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		195B58FB29E7E0B600BE601A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1911BA2B29E49E8900E912C7 /* ContentView.swift */,
+				1911BA3929E57B7B00E912C7 /* DetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		195B58FC29E7E0C000BE601A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				195B58FD29E7E12400BE601A /* ContentViewModel.swift */,
+				195B58FF29E7E13D00BE601A /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,9 +182,11 @@
 				1911BA3829E54CA500E912C7 /* Locations.swift in Sources */,
 				1911BA3E29E57F5C00E912C7 /* APIkey.swift in Sources */,
 				1911BA3A29E57B7B00E912C7 /* DetailView.swift in Sources */,
+				195B58FE29E7E12400BE601A /* ContentViewModel.swift in Sources */,
 				1911BA2C29E49E8900E912C7 /* ContentView.swift in Sources */,
 				1911BA4029E586C900E912C7 /* Weather.swift in Sources */,
 				1911BA2A29E49E8900E912C7 /* PocasiApp.swift in Sources */,
+				195B590029E7E13D00BE601A /* DetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
