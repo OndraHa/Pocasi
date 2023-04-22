@@ -10,6 +10,8 @@ import SwiftUI
 
 struct DetailView: View {
     @StateObject private var detailModel = DetailViewModel()
+    @State var forecastB = 0
+    
     
     let location: Locations
    
@@ -33,27 +35,73 @@ struct DetailView: View {
                     .padding(.top, -40)
                     .foregroundColor(.gray)
                 
-                if let day = detailModel.weatherResultForecast?.list {
-                    ForEach(day, id: \.dt) { day in
-                        
-                        HStack{
-                            Text("\(detailModel.dayWeek(day.dt))")
-                                .frame(width: 110, alignment: .leading)
-                            
-                            Spacer()
                 
-        
-                            Image(systemName: detailModel.icon[day.weather.first!.icon] ?? "exclamationmark.square")
-                                .symbolRenderingMode(.multicolor)
+                
+//                if forecastB == 0 {
+//                    var daysF = days.filter {detailModel.dayWeek($0.dt).contains("")}
+//                }else {
+//                     var daysF = days
+//                }
+                
+               
+                Picker("Typ předpovědi", selection: $forecastB) {
+                                Text("3h předpověď").tag(0)
+                                Text("Denní předpověď").tag(1)
+                            }
+                            .pickerStyle(.segmented)
+                            .padding(5)
+                
+                
+                if forecastB == 1{
+                    if let days = detailModel.weatherResultForecast?.list.filter{detailModel.dayWeek($0.dt).contains("11:00 Dop.")} {
+                        
+                        ForEach(days, id: \.dt) { day in
                             
-                            
-                            Spacer()
-                            
-                            Text("\(Int(day.main.temp))°C")
-                                .frame(width: 60, alignment: .trailing)
+                            HStack{
+                                Text("\(detailModel.dayWeek(day.dt))")
+                                    .frame(width: 110, alignment: .leading)
+                                
+                                Spacer()
+                                
+                                
+                                Image(systemName: detailModel.icon[day.weather.first!.icon] ?? "exclamationmark.square")
+                                    .symbolRenderingMode(.multicolor)
+                                
+                                
+                                Spacer()
+                                
+                                Text("\(Int(day.main.temp))°C")
+                                    .frame(width: 60, alignment: .trailing)
+                            }
+                            .padding(.bottom, 3)
+                            Divider()
                         }
-                        .padding(.bottom, 3)
-                        Divider()
+                    }
+                    
+                }else{
+                    if let days = detailModel.weatherResultForecast?.list {
+                        
+                        ForEach(days, id: \.dt) { day in
+                            
+                            HStack{
+                                Text("\(detailModel.dayWeek(day.dt))")
+                                    .frame(width: 110, alignment: .leading)
+                                
+                                Spacer()
+                                
+                                
+                                Image(systemName: detailModel.icon[day.weather.first!.icon] ?? "exclamationmark.square")
+                                    .symbolRenderingMode(.multicolor)
+                                
+                                
+                                Spacer()
+                                
+                                Text("\(Int(day.main.temp))°C")
+                                    .frame(width: 60, alignment: .trailing)
+                            }
+                            .padding(.bottom, 3)
+                            Divider()
+                        }
                     }
                 }
                 

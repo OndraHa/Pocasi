@@ -10,6 +10,8 @@ import Foundation
 class DetailViewModel: ObservableObject {
     @Published var weatherResultCurrent: WeatherMain?
     @Published var weatherResultForecast: WeatherForecast?
+    @Published var weatherResultForecastFiltered: WeatherForecast?
+    
     
     let icon = [
         "01d": "sun.max.fill",
@@ -98,6 +100,8 @@ class DetailViewModel: ObservableObject {
 
         }
         task2.resume()
+        
+        
     }
     func dayWeek(_ num: Int) -> String {
         let formatter = DateFormatter()
@@ -107,3 +111,4 @@ class DetailViewModel: ObservableObject {
         return dateString
     }
 }
+
